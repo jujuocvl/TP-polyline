@@ -30,7 +30,7 @@ const rubberBandingMachine = createMachine(
     initial: "idle",
     states: {
       idle: {
-        on: {
+        on: { // refère toujours à un évènement
           MOUSECLICK: {
             target: "drawing",
             actions: ["createLine"],
@@ -72,7 +72,7 @@ const rubberBandingMachine = createMachine(
       // Sauvegarde la ligne
       saveLine: (context, event) => {
         rubber.remove(); // On l'enlève de la couche temporaire
-        rubber.stroke("black"); // On change la couleur
+        rubber.stroke("blue"); // On change la couleur
         dessin.add(rubber); // On l'ajoute à la couche de dessin
       }
     },
